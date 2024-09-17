@@ -16,6 +16,15 @@ public class AJController : MonoBehaviour
 
     void Start()
     {
+        movesAnimatiorStates();
+    }
+
+    void Update()
+    {
+        playerMovements();
+    }
+
+    private void movesAnimatiorStates(){
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
@@ -23,9 +32,8 @@ public class AJController : MonoBehaviour
         isRunningBackHash = Animator.StringToHash("isRunningBack");
     }
 
-    void Update()
-    {
-        // Entrada do jogador
+    private void playerMovements(){
+// Entrada do jogador
         bool forwardPress = Input.GetKey("w");
         bool backPress = Input.GetKey("s");
         bool leftPress = Input.GetKey("a");
