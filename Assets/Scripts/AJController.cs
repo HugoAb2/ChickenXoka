@@ -30,21 +30,20 @@ public class AJController : MonoBehaviour
         bool backPress = Input.GetKey("s");
         bool leftPress = Input.GetKey("a");
         bool rightPress = Input.GetKey("d");
-        bool runPress = Input.GetKey("left shift");
+        bool runPress = Input.GetKey("left shift") || Input.GetKey("right shift");
 
         // Atualizar estado de andar (frente e lados)
-        bool isWalking = forwardPress || leftPress || rightPress;
+        bool isWalking = forwardPress;
+        bool isWalkingBack = backPress;
+
         animator.SetBool(isWalkingHash, isWalking);
 
-        // Atualizar estado de correr (para frente ou para trás)
         animator.SetBool(isRunningHash, forwardPress && runPress);
 
-        // Atualizar estado de andar para trás
-        animator.SetBool(isRetreatingHash, backPress && !runPress);
+        animator.SetBool(isRetreatingHash, isWalkingBack);
 
         animator.SetBool(isRunningBackHash, backPress && runPress);
 
-        // Rotação para esquerda e direita
         if (leftPress)
         {
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
