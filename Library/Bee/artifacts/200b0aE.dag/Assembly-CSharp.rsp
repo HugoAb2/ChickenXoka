@@ -351,11 +351,13 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.38f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/Applications/Unity/Hub/Editor/2022.3.38f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/Characters/alienGun/animation/GunAlienController.cs"
+"Assets/Characters/alienWithGun/animation/GunAlienController.cs"
 "Assets/Characters/Yurowm/Demo/Scripts/Actions.cs"
 "Assets/Characters/Yurowm/Demo/Scripts/CharacterPanel.cs"
 "Assets/Characters/Yurowm/Demo/Scripts/CharacterViewer.cs"
 "Assets/Characters/Yurowm/Demo/Scripts/PlayerController.cs"
+"Assets/Scripts/AJController.cs"
+"Assets/Scripts/CameraFollowScript.cs"
 "Assets/walk.cs"
 -langversion:9.0
 /deterministic
