@@ -14,9 +14,14 @@ public class AJController : MonoBehaviour
     public float moveSpeed = 2f;   // Velocidade de movimento
     public float runSpeed = 4f;    // Velocidade de corrida
 
+    public int maxHealth = 100;    // Vida máxima do personagem
+    public int currentHealth;      // Vida atual do personagem
+    public int damageAmount = 10;  // Dano causado ao colidir com o objeto
+
     void Start()
     {
         movesAnimatiorStates();
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -74,4 +79,31 @@ public class AJController : MonoBehaviour
             transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
     }
+     
+     private void OnCollisionEnter(Collision collision)
+    {
+        // Verifica se o objeto com o qual o personagem colidiu tem a tag "Dangerous"
+        if (collision.gameObject.CompareTag("Dangerous"))
+        {
+            TakeDamage(damageAmount); // Aplica o dano
+        }
+    }
+        private void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log("Personagem tomou dano! Vida restante: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die(); // Chama a função de morte se a vida chegar a 0
+        }
+    }
+
+    // Função de morte do personagem
+    private void Die()
+    {
+        Debug.Log("Personagem morreu!");
+        // Aqui você pode implementar lógica para reiniciar o jogo, exibir uma animação de morte, etc.
+    }
+    
 }
