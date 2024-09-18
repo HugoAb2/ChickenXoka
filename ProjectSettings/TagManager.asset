@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - IsGround
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Alien
   - 
   - 
   - 
